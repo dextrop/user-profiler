@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# User Profiler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The application user profiler is a prototype project.
 
-## Available Scripts
+## About the application.
 
-In the project directory, you can run:
+The application ask user to recite thier work experince and then response back with 3 bullet points of what has been said in a succinct manner and using resume friendly language. 
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Clone project
+- Create .env file and add your OpenAI api key in it
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+REACT_APP_OPENAI_API_KEY=your-api-key
+```
 
-### `npm test`
+- Install dependencies using `npm i`
+- Run application using `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## How it works.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application uses browser based [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) and [SpeechRecognition] (https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) to collect data from user. This data is then passed the information to [OpenAI ChatGPT model](https://js.langchain.com/docs/modules/model_io/models/llms/integrations/openai) to get 3 bullet points of what has been said in a succinct manner and using resume friendly language. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Cons
 
-### `npm run eject`
+- [WebAudio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) stuck in between sometimes which require application reloading. ( Can be improved )
+- Very basic prompt is used to create the response from OpenAIModel
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**prompt used**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```Take the input from user as their previous contribution in the last company and create 3 bullet points of what has been said in a succinct manner and using resume friendly language```
