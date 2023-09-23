@@ -27,6 +27,10 @@ const App = () => {
     });
   };
 
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
   const stopRecording = async () => {
     console.log("Stop Recording");
     setMicState(false);
@@ -62,6 +66,7 @@ const App = () => {
             rows={4}
             value={text}
             variant="filled"
+            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={2} style={{ lineHeight: '12vh' }}>
